@@ -1,0 +1,20 @@
+{% extends 'prof/same.html' %}
+
+{% block content %}
+
+    <title>All Blogs</title>
+  <body>
+
+
+    <h1>Mohammad has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h1>
+    {% for blog in blogs %}
+
+    <a href="{% url 'blog:detail' blog.id %} " target="_blank"><h1>{{blog.title}}</h1></a>
+    <br><b>{{blog.date|date:'M d Y'}}</b>
+    <br><h4>{{blog.discription|truncatechars:50}}</h4>
+
+    {% endfor %}
+
+  </body>
+
+{% endblock %}  
